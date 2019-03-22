@@ -168,6 +168,10 @@ public class Signal extends Service implements OnErrorListener,
     }
 
     public void showNotification() {
+        if(clsActivity == null) {
+            clsActivity = module.getClassActivity();
+        }
+            
         remoteViews = new RemoteViews(context.getPackageName(), R.layout.streaming_notification_player);
         notifyBuilder = new Notification.Builder(this.context)
                 .setSmallIcon(android.R.drawable.ic_lock_silent_mode_off) // TODO Use app icon instead
